@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pusher - Ajax Long Polling</title>
+</head>
+<body>
+    <h1>Pusher</h1>
+
+    <form method="post" action="server/new-message.php">
+        <input type="text" name="message" placeholder="Type something" autocomplete="off">
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        document.getElementsByTagName('input')[0].focus();
+    </script>
+</body>
+</html>

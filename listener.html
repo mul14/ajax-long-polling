@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listener - Ajax Long Polling</title>
+</head>
+<body>
+    <h1>Listener</h1>
+
+    <button onclick="listen(); this.disabled=true; this.innerHTML='Listening...'">Listen</button>
+    <ol class="log"></ol>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        function listen() {
+            $.ajax({
+                "type": "get",
+                "dataType": "json",
+                "url": "server/listener.php",
+                "async": true,
+                "cache": false,
+                "success": function(response){
+
+                    output = 'From <strong>' + response.ipaddress + '</strong>';
+                    output += ' at <strong>' + response.created + '</strong>';
+                    output += '<br/>Message: <strong>' + response.message + '</strong>';
+
+                    $('.log').append('<li>' + output + '</li>');
+
+                    listen();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
