@@ -23,6 +23,7 @@
 
                     output = 'From <strong>' + response.ipaddress + '</strong>';
                     output += ' at <strong>' + response.created + '</strong>';
+                    output += '<br/> User agent: <em>' + response.user_agent + '</em>';
                     output += '<br/>Message: <strong>' + response.message + '</strong>';
 
                     $('.log').append('<li>' + output + '</li>');

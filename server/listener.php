@@ -10,6 +10,7 @@ while(strtotime($latestMessage->created) == strtotime($newMessage->created)) {
 
 $json['message'] = $newMessage->message;
 $json['ipaddress'] = $newMessage->ipaddress;
+$json['user_agent'] = $newMessage->user_agent;
 $json['created'] = $newMessage->created;
 
 header('Content-type: application/json');
